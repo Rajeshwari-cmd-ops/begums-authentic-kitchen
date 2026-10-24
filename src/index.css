@@ -1,0 +1,142 @@
+/* ==========================================================================
+   Begum's Authentic Hyderabadi Kitchen - Royal Theme Specification
+   Palette:
+     Background: #0a1128 (Royal Navy)
+     Secondary background: #101c3d (Deep Navy Blue)
+     Accents: #d4a94e (Royal Antique Gold)
+     Headlines: Playfair Display (Serif Gold)
+     Body: Inter (Clean Sans-Serif)
+     Glass surface: rgba(16, 28, 59, 0.65)
+     Glass border: rgba(212, 169, 78, 0.28)
+   ========================================================================== */
+
+:root {
+  --color-royal-navy: #0a1128;
+  --color-bg-primary: #0a1128;
+  --color-deep-blue: #101c3d;
+  --color-bg-secondary: #0e1836;
+  
+  --color-glass-surface: rgba(255, 255, 255, 0.05);
+  --color-glass-surface-hover: rgba(255, 255, 255, 0.08);
+  --color-glass-border: rgba(255, 255, 255, 0.1);
+  --color-card-border: rgba(255, 255, 255, 0.1);
+  --color-card-border-hover: rgba(212, 169, 78, 0.3);
+
+  --color-antique-gold: #d4a94e;
+  --color-bright-gold: #d4a94e;
+  --color-gold-hover: #e5be6b;
+  
+  --color-warm-ivory: #F5F0E6;
+  --color-warm-cream: #F5F0E6;
+  --color-white: #FFFFFF;
+
+  --color-secondary-text: #B7BDCA;
+  --color-text-muted: #B7BDCA;
+  --color-text-subtle: #8a94a6;
+
+  --color-veg: #22C55E;
+  --color-non-veg: #EF4444;
+
+  --font-royal: 'Playfair Display', Georgia, serif;
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  --container-max: 1280px; /* max-w-7xl */
+  --header-height: 72px;
+
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-2xl: 16px;
+  --radius-3xl: 24px;
+  --radius-full: 9999px;
+
+  --glass-blur: blur(24px);
+  --shadow-glass: 0 8px 32px rgba(0, 0, 0, 0.3);
+  --shadow-glass-hover: 0 12px 36px rgba(0, 0, 0, 0.45), 0 0 24px rgba(212, 169, 78, 0.18);
+
+  --transition-fast: 250ms ease;
+  --transition-glass: 300ms ease;
+  --transition-normal: 350ms ease;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--header-height) + 16px);
+  -webkit-text-size-adjust: 100%;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-bg-primary);
+  color: var(--color-warm-ivory);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Subtle Mughal damask/paisley pattern as SVG, gold #d4a94e at 4% opacity, royal fabric texture */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23d4a94e' stroke-width='0.8' stroke-opacity='0.04'%3E%3Cpath d='M60 22 C48 34 42 48 42 62 C42 76 51 86 64 86 C77 86 85 76 85 62 C85 51 79 43 70 37 C64 33 60 26 60 18 C60 12 65 8 71 8 C77 8 80 12 80 17'/%3E%3Cpath d='M60 36 C52 44 48 53 48 62 C48 71 54 78 63 78 C72 78 78 71 78 61 C78 53 74 47 68 43'/%3E%3Ccircle cx='63' cy='62' r='3.5' fill='%23d4a94e' fill-opacity='0.04'/%3E%3Ccircle cx='63' cy='62' r='8' stroke-dasharray='1 3'/%3E%3Cpath d='M0 0 C14 8 22 18 22 32 C22 42 16 50 8 54'/%3E%3Cpath d='M120 0 C106 8 98 18 98 32 C98 42 104 50 112 54'/%3E%3Cpath d='M0 120 C14 112 22 102 22 88 C22 78 16 70 8 66'/%3E%3Cpath d='M120 120 C106 112 98 102 98 88 C98 78 104 70 112 66'/%3E%3Ccircle cx='0' cy='60' r='5'/%3E%3Ccircle cx='120' cy='60' r='5'/%3E%3Ccircle cx='60' cy='0' r='5'/%3E%3Ccircle cx='60' cy='120' r='5'/%3E%3Cpath d='M25 60 Q40 50 44 60 T60 70'/%3E%3Cpath d='M95 60 Q80 50 76 60 T60 70'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 120px 120px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+#root,
+.begums-app-wrapper,
+main#main-content {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  position: relative;
+  z-index: 1;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
