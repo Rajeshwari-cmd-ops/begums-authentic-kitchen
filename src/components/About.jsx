@@ -128,14 +128,19 @@ export default function About() {
             </h3>
 
             <p className="story-narrative-paragraph">
-              In the heart of Bangalore, where traditions are timeless and flavours are legendary,
-              <strong> Begum's Authentic Hyderabadi Kitchen</strong> was born out of a passion to preserve
-              the rich culinary heritage of the Nawabs. Our recipes are sacred heirlooms passed down through
-              generations—slow-cooked on sealed Dum over fragrant charcoal embers, with patience and the finest
-              hand-selected spices.
+              <span className="heritage-desc-desktop">
+                In the heart of Bangalore, where traditions are timeless and flavours are legendary,
+                <strong> Begum's Authentic Hyderabadi Kitchen</strong> was born out of a passion to preserve
+                the rich culinary heritage of the Nawabs. Our recipes are sacred heirlooms passed down through
+                generations—slow-cooked on sealed Dum over fragrant charcoal embers, with patience and the finest
+                hand-selected spices.
+              </span>
+              <span className="heritage-desc-mobile">
+                Born out of devotion to royal Nizami traditions, our heirloom recipes are slow-cooked on sealed Dum over fragrant charcoal embers.
+              </span>
             </p>
 
-            <p className="story-narrative-sub">
+            <p className="story-narrative-sub heritage-sub-desktop">
               Every dish we create is a tribute crafted with royal tehzeeb, bringing the grandeur of Hyderabad’s
               princely dastarkhwans directly to your family table.
             </p>

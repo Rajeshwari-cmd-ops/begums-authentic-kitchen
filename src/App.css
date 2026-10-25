@@ -6105,3 +6105,1376 @@ html, body, #root, .begums-app-wrapper, main#main-content {
   }
 }
 
+/* ==========================================================================
+   DEDICATED MOBILE VIEW BREAKPOINT SYSTEM (Below 768px)
+   Adapts existing website for 360px, 414px, 480px, 600px, 767px
+   Desktop / Laptop view (>= 768px): ZERO CHANGES
+   ========================================================================== */
+
+/* 1. Global Spacing & Layout System below 768px */
+@media (min-width: 768px) {
+  .hero-mobile-divider,
+  .hero-mobile-particle,
+  .hero-desc-mobile,
+  .heritage-desc-mobile {
+    display: none !important;
+  }
+  .hero-desc-desktop,
+  .heritage-desc-desktop,
+  .heritage-sub-desktop {
+    display: block !important;
+  }
+}
+
+@media (max-width: 767px) {
+  /* Hide desktop-only long article text blocks on mobile */
+  .hero-desc-desktop,
+  .heritage-desc-desktop,
+  .heritage-sub-desktop,
+  .begums-heritage-section .section-subtext,
+  .begums-heritage-section .heritage-draw-line-wrap {
+    display: none !important;
+  }
+
+  .hero-desc-mobile,
+  .heritage-desc-mobile {
+    display: block !important;
+  }
+
+  /* Global root hygiene: Prevent any accidental horizontal overflow */
+  html,
+  body,
+  #root,
+  .begums-app-root {
+    overflow-x: hidden !important;
+    max-width: 100vw !important;
+    width: 100% !important;
+  }
+
+  /* Subtle Mughal gold damask/lattice pattern overlay on mobile sections (replaces flat navy) */
+  .begums-hero-section,
+  .begums-section,
+  .begums-heritage-section,
+  .shahi-aghaaz-section,
+  .begums-menu-section,
+  .sunday-section,
+  .why-begums-section,
+  .catering-section,
+  .reviews-section,
+  .contact-ordering-section {
+    position: relative;
+  }
+
+  .begums-hero-section::before,
+  .begums-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23d4a94e' stroke-width='0.75' stroke-opacity='0.055'%3E%3Cpath d='M50 18 C40 28 35 40 35 52 C35 64 42 72 53 72 C64 72 71 64 71 52 C71 42 66 36 58 31 C53 28 50 22 50 15 C50 10 54 7 59 7 C64 7 67 10 67 14'/%3E%3Cpath d='M50 30 C43 37 40 44 40 52 C40 59 45 65 52 65 C60 65 65 59 65 51 C65 44 62 39 57 36'/%3E%3Ccircle cx='52' cy='52' r='2.8' fill='%23d4a94e' fill-opacity='0.045'/%3E%3Ccircle cx='52' cy='52' r='6.5' stroke-dasharray='1 2.5'/%3E%3Cpath d='M0 0 C12 7 18 15 18 27 C18 35 13 42 7 45'/%3E%3Cpath d='M100 0 C88 7 82 15 82 27 C82 35 87 42 93 45'/%3E%3Cpath d='M0 100 C12 93 18 85 18 73 C18 65 13 58 7 55'/%3E%3Cpath d='M100 100 C88 93 82 85 82 73 C82 65 87 58 93 55'/%3E%3Ccircle cx='0' cy='50' r='4'/%3E%3Ccircle cx='100' cy='50' r='4'/%3E%3Ccircle cx='50' cy='0' r='4'/%3E%3Ccircle cx='50' cy='100' r='4'/%3E%3C/g%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 90px 90px;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* ==========================================================================
+     PADDING RULE: ONE SINGLE SIDE PADDING FOR ENTIRE PAGE = 20PX
+     Measured identical left/right alignment down the entire page.
+     ========================================================================== */
+  .container,
+  .hero-container,
+  .navbar-container,
+  .footer-container {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  /* Section backgrounds span full width; side padding handled purely by .container */
+  .begums-hero-section,
+  .begums-section,
+  .begums-heritage-section,
+  .shahi-aghaaz-section,
+  .begums-menu-section,
+  .sunday-section,
+  .why-begums-section,
+  .catering-section,
+  .reviews-section,
+  .contact-ordering-section,
+  .begums-footer {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* ==========================================================================
+     GAP RULE: FIXED RHYTHM SYSTEM
+     Between sections: 48px
+     Between elements inside a section (heading -> text -> image -> buttons): 16-20px
+     No dead empty space, no 100px+ gaps anywhere.
+     ========================================================================== */
+  .begums-section,
+  .begums-heritage-section,
+  .shahi-aghaaz-section,
+  .begums-menu-section,
+  .sunday-section,
+  .why-begums-section,
+  .catering-section,
+  .reviews-section,
+  .contact-ordering-section {
+    padding-top: 48px !important;
+    padding-bottom: 48px !important;
+    margin: 0 !important;
+  }
+
+  /* Section Headers: Centered, clean hierarchy, 20px gap below to content */
+  .section-header-compact {
+    margin-bottom: 20px !important;
+    text-align: center !important;
+    position: relative;
+    z-index: 2;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+
+  .section-pretitle,
+  .hero-pretitle {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 7px !important;
+    padding: 4px 14px !important;
+    border-radius: 9999px !important;
+    background: rgba(212, 169, 78, 0.1) !important;
+    border: 1px solid rgba(212, 169, 78, 0.42) !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.35), 0 0 12px rgba(212, 169, 78, 0.12) !important;
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+    font-size: 0.68rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.15em !important;
+    text-transform: uppercase !important;
+    color: #f5d07e !important;
+    margin: 0 auto 10px auto !important;
+  }
+
+  .section-pretitle svg,
+  .hero-pretitle svg {
+    color: #d4a94e !important;
+    flex-shrink: 0 !important;
+  }
+
+  .section-title {
+    font-size: clamp(1.65rem, 6.5vw, 2.1rem) !important;
+    line-height: 1.25 !important;
+    letter-spacing: -0.01em !important;
+    margin: 0 auto 6px auto !important;
+    text-align: center !important;
+  }
+
+  .gold-decorative-divider {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 10px !important;
+    max-width: 140px !important;
+    margin: 6px auto 10px auto !important;
+  }
+
+  .gold-decorative-divider .divider-line {
+    flex: 1 !important;
+    height: 1px !important;
+    background: linear-gradient(90deg, transparent, rgba(212, 169, 78, 0.65), transparent) !important;
+  }
+
+  .gold-decorative-divider .divider-emblem {
+    color: #d4a94e !important;
+    font-size: 0.85rem !important;
+    line-height: 1 !important;
+    text-shadow: 0 0 8px rgba(212, 169, 78, 0.6) !important;
+  }
+
+  .section-subtitle-compact,
+  .section-subtext {
+    font-size: 0.82rem !important;
+    line-height: 1.55 !important;
+    max-width: 100% !important;
+    color: var(--color-warm-cream) !important;
+    opacity: 0.88 !important;
+    text-align: center !important;
+    margin: 0 auto !important;
+  }
+
+  /* ==========================================================================
+     NAVBAR ON MOBILE (Fixed 56px height, 20px padding)
+     ========================================================================== */
+  .begums-navbar {
+    height: 56px !important;
+  }
+
+  .navbar-container {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    height: 56px !important;
+  }
+
+  .navbar-logo-img {
+    height: 30px !important;
+    max-height: 30px !important;
+    width: auto !important;
+  }
+
+  .navbar-cart-pill {
+    padding: 5px 9px !important;
+    font-size: 0.78rem !important;
+    min-height: 38px !important;
+  }
+
+  .cart-amount-text {
+    font-size: 0.78rem !important;
+  }
+
+  .nav-order-btn {
+    display: none !important;
+  }
+
+  /* ==========================================================================
+     1. HERO SECTION ON MOBILE
+     Starts ~76px below top (no dead space), centered alignment,
+     ARCH IMAGE SHAPE RULE: Exact desktop dome arch preserved, never a square box.
+     ========================================================================== */
+  .begums-hero-section {
+    min-height: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    padding-top: 20px !important;
+    padding-bottom: 48px !important;
+    background: radial-gradient(circle at 50% 22%, rgba(212, 169, 78, 0.22) 0%, rgba(13, 22, 54, 0.98) 50%, #060b1a 100%) !important;
+    position: relative !important;
+    overflow: hidden !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .hero-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 20px !important;
+    width: 100% !important;
+  }
+
+  .hero-text-col {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    position: relative !important;
+  }
+
+  .hero-pretitle {
+    margin: 0 auto 10px auto !important;
+  }
+
+  .hero-headline {
+    position: relative !important;
+    font-size: clamp(26px, 7.5vw, 34px) !important;
+    line-height: 1.15 !important;
+    margin: 0 auto 6px auto !important;
+    text-align: center !important;
+    width: 100% !important;
+    letter-spacing: 0.01em !important;
+  }
+
+  .hero-headline::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 250px;
+    height: 150px;
+    background: radial-gradient(ellipse at center, rgba(212, 169, 78, 0.25) 0%, rgba(212, 169, 78, 0.08) 52%, transparent 75%);
+    filter: blur(24px);
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  .hero-mobile-divider {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 10px !important;
+    max-width: 130px !important;
+    margin: 4px auto 10px auto !important;
+  }
+
+  .hero-mobile-particle {
+    position: absolute;
+    color: #f5d07e;
+    pointer-events: none;
+    user-select: none;
+    filter: drop-shadow(0 0 6px rgba(212, 169, 78, 0.75));
+    animation: mobileParticleFloat 4.5s ease-in-out infinite alternate;
+    z-index: 3;
+  }
+
+  .hero-mobile-particle-1 {
+    top: 6px;
+    left: 8px;
+    font-size: 10px;
+    animation-delay: 0s;
+  }
+
+  .hero-mobile-particle-2 {
+    top: 36%;
+    right: 8px;
+    font-size: 11px;
+    animation-delay: 1.6s;
+  }
+
+  .hero-mobile-particle-3 {
+    bottom: 22%;
+    left: 10px;
+    font-size: 9px;
+    animation-delay: 3s;
+  }
+
+  @keyframes mobileParticleFloat {
+    0% {
+      transform: translateY(0) rotate(0deg) scale(0.85);
+      opacity: 0.35;
+    }
+    50% {
+      transform: translateY(-8px) rotate(15deg) scale(1.1);
+      opacity: 0.85;
+    }
+    100% {
+      transform: translateY(-14px) rotate(-10deg) scale(0.9);
+      opacity: 0.45;
+    }
+  }
+
+  .hero-lead-desc {
+    font-size: 0.88rem !important;
+    line-height: 1.5 !important;
+    margin: 0 auto 16px auto !important;
+    max-width: 320px !important;
+    color: var(--color-warm-cream) !important;
+    opacity: 0.9 !important;
+    text-align: center !important;
+  }
+
+  .hero-cta-group {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 10px !important;
+    width: 100% !important;
+    max-width: 360px !important;
+    margin: 0 auto 16px auto !important;
+  }
+
+  .hero-primary-btn,
+  .hero-whatsapp-btn {
+    flex: 1 1 140px !important;
+    justify-content: center !important;
+    min-height: 44px !important;
+    padding: 10px 14px !important;
+    font-size: 0.84rem !important;
+    border-radius: 10px !important;
+  }
+
+  .hero-highlights {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 8px 14px !important;
+    margin: 0 auto !important;
+    padding-top: 12px !important;
+    border-top: 1px solid rgba(212, 169, 78, 0.18) !important;
+    font-size: 0.74rem !important;
+    width: 100% !important;
+    max-width: 360px !important;
+  }
+
+  .highlight-dot {
+    width: 6px !important;
+    height: 6px !important;
+    border-radius: 50% !important;
+    display: inline-block !important;
+  }
+
+  /* IMAGE SHAPE RULE: HERO ARCH (Desktop dome arch preserved, never flattened into square) */
+  .hero-image-col {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: flex !important;
+    justify-content: center !important;
+  }
+
+  .hero-arch-wrapper {
+    width: 100% !important;
+    max-width: 290px !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    position: relative !important;
+  }
+
+  .hero-arch-frame {
+    width: 100% !important;
+    max-width: 290px !important;
+    height: 320px !important;
+    border-radius: 145px 145px 22px 22px !important;
+    border: 2px solid rgba(212, 169, 78, 0.55) !important;
+    box-shadow: 0 0 28px rgba(212, 169, 78, 0.22), 0 16px 40px rgba(0, 0, 0, 0.7) !important;
+    overflow: hidden !important;
+    position: relative !important;
+    background: #080f24 !important;
+    box-sizing: border-box !important;
+  }
+
+  .hero-carousel-slide {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    border-radius: 143px 143px 20px 20px !important;
+    overflow: hidden !important;
+  }
+
+  .hero-carousel-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    border-radius: 143px 143px 20px 20px !important;
+    transform: none !important;
+    animation: none !important;
+    display: block !important;
+  }
+
+  .hero-slide-overlay {
+    position: absolute !important;
+    inset: 0 !important;
+    background: linear-gradient(180deg, rgba(10, 17, 40, 0.12) 0%, rgba(10, 17, 40, 0.35) 60%, rgba(10, 17, 40, 0.85) 100%) !important;
+    pointer-events: none !important;
+  }
+
+  .hero-arch-top-badge {
+    position: absolute !important;
+    top: 14px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    padding: 5px 14px !important;
+    border-radius: 9999px !important;
+    background: rgba(10, 17, 40, 0.9) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(212, 169, 78, 0.55) !important;
+    color: #f5d07e !important;
+    font-size: 0.72rem !important;
+    letter-spacing: 0.08em !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5), 0 0 12px rgba(212, 169, 78, 0.25) !important;
+    z-index: 5 !important;
+    white-space: nowrap !important;
+  }
+
+  .hero-carousel-dots {
+    position: absolute !important;
+    bottom: 12px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    background: rgba(10, 17, 40, 0.8) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(212, 169, 78, 0.35) !important;
+    padding: 4px 8px !important;
+    border-radius: 9999px !important;
+    z-index: 5 !important;
+  }
+
+  .hero-carousel-dot {
+    height: 6px !important;
+    width: 6px !important;
+  }
+
+  .hero-carousel-dot.active {
+    width: 20px !important;
+  }
+
+  /* Hero Floating Badge directly below arch */
+  .hero-floating-badge {
+    position: relative !important;
+    inset: auto !important;
+    transform: none !important;
+    margin: 14px auto 0 auto !important;
+    width: 100% !important;
+    max-width: 290px !important;
+    padding: 10px 14px !important;
+    border-radius: 14px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    background: rgba(10, 17, 40, 0.92) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+    border: 1px solid rgba(212, 169, 78, 0.35) !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.55), 0 0 16px rgba(212, 169, 78, 0.12) !important;
+    animation: none !important;
+    opacity: 1 !important;
+    box-sizing: border-box !important;
+  }
+
+  .floating-badge-crown {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin-right: 8px !important;
+    width: 34px !important;
+    height: 34px !important;
+    border-radius: 50% !important;
+    flex-shrink: 0 !important;
+  }
+
+  .floating-badge-info {
+    text-align: left !important;
+    flex: 1 !important;
+  }
+
+  .floating-badge-title {
+    font-size: 0.85rem !important;
+    display: block !important;
+    line-height: 1.2 !important;
+  }
+
+  .floating-badge-sub {
+    font-size: 0.7rem !important;
+    display: block !important;
+  }
+
+  .floating-badge-price-wrap {
+    text-align: right !important;
+    margin-left: 8px !important;
+  }
+
+  .floating-badge-price {
+    font-size: 0.95rem !important;
+    display: block !important;
+  }
+
+  .floating-badge-seal {
+    font-size: 0.65rem !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 3px !important;
+  }
+
+  /* ==========================================================================
+     2. ABOUT / HERITAGE SECTION ON MOBILE
+     IMAGE SHAPE RULE: Tall portrait architectural card with rounded-3xl (26px),
+     keeps desktop proportions, never squashed or square.
+     ========================================================================== */
+  .heritage-story-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 20px !important;
+    width: 100% !important;
+  }
+
+  .heritage-collage-pane {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: flex !important;
+    justify-content: center !important;
+  }
+
+  .heritage-collage-wrapper {
+    width: 100% !important;
+    max-width: 300px !important;
+    margin: 0 auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 12px !important;
+    position: relative !important;
+  }
+
+  /* Tall Portrait Architectural Frame (Charminar dusk) */
+  .collage-main-frame {
+    width: 100% !important;
+    max-width: 300px !important;
+    height: 360px !important;
+    border-radius: 26px !important;
+    margin: 0 auto !important;
+    border: 1.5px solid rgba(212, 169, 78, 0.45) !important;
+    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.65), 0 0 24px rgba(212, 169, 78, 0.2) !important;
+    overflow: hidden !important;
+    background: #080f24 !important;
+    position: relative !important;
+  }
+
+  .collage-main-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    border-radius: 24px !important;
+    animation: none !important;
+    transform: none !important;
+    display: block !important;
+  }
+
+  .collage-main-caption {
+    position: absolute !important;
+    bottom: 12px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    font-size: 0.7rem !important;
+    padding: 5px 12px !important;
+    background: rgba(10, 17, 40, 0.88) !important;
+    backdrop-filter: blur(8px) !important;
+    border: 1px solid rgba(212, 169, 78, 0.4) !important;
+    border-radius: 9999px !important;
+    white-space: nowrap !important;
+    z-index: 5 !important;
+    color: var(--color-warm-cream) !important;
+  }
+
+  .collage-sparkle {
+    display: none !important;
+  }
+
+  .collage-thumb-bottom-left,
+  .collage-thumb-top-right {
+    position: static !important;
+    width: auto !important;
+    height: auto !important;
+    border: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    transform: none !important;
+    overflow: visible !important;
+    display: inline-flex !important;
+    margin: 0 !important;
+  }
+
+  .collage-thumb-bottom-left img,
+  .collage-thumb-top-right img,
+  .thumb-vignette-overlay {
+    display: none !important;
+  }
+
+  .thumb-badge-tag {
+    position: static !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    background: rgba(10, 17, 40, 0.9) !important;
+    border: 1px solid rgba(212, 175, 55, 0.45) !important;
+    padding: 6px 14px !important;
+    border-radius: 20px !important;
+    color: #F5F0E6 !important;
+    font-size: 0.74rem !important;
+    font-family: var(--font-royal) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4) !important;
+    white-space: nowrap !important;
+  }
+
+  .heritage-narrative-pane {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 10px !important;
+    width: 100% !important;
+    margin-top: 4px !important;
+  }
+
+  .story-shahi-heading {
+    font-size: 1.25rem !important;
+    margin: 0 0 4px 0 !important;
+    line-height: 1.3 !important;
+    text-align: center !important;
+    color: var(--color-bright-gold) !important;
+  }
+
+  .story-narrative-paragraph {
+    font-size: 0.85rem !important;
+    line-height: 1.5 !important;
+    max-width: 340px !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+    color: var(--color-warm-cream) !important;
+    opacity: 0.9 !important;
+  }
+
+  .heritage-glass-card {
+    padding: 12px 14px !important;
+    border-radius: 14px !important;
+    margin: 0 auto !important;
+    width: 100% !important;
+    max-width: 340px !important;
+    box-sizing: border-box !important;
+  }
+
+  .curator-card {
+    margin-top: 4px !important;
+  }
+
+  .quote-card {
+    margin-top: 2px !important;
+  }
+
+  .curator-name {
+    font-size: 0.9rem !important;
+  }
+
+  .curator-location {
+    font-size: 0.7rem !important;
+  }
+
+  .couplet-text {
+    font-size: 0.78rem !important;
+    line-height: 1.45 !important;
+  }
+
+  .couplet-source {
+    font-size: 0.68rem !important;
+  }
+
+  /* ==========================================================================
+     3. MENU FILTER CONTROLS & SEARCH
+     ========================================================================== */
+  .royal-filter-controls {
+    flex-direction: column !important;
+    gap: 12px !important;
+    margin-bottom: 20px !important;
+  }
+
+  .royal-search-wrapper {
+    width: 100% !important;
+  }
+
+  .royal-search-input {
+    font-size: 0.85rem !important;
+    padding: 10px 14px 10px 38px !important;
+    min-height: 44px !important;
+    height: 44px !important;
+    border-radius: 10px !important;
+  }
+
+  .diet-filter-pills {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 6px !important;
+    width: 100% !important;
+  }
+
+  .diet-pill {
+    flex: 1 1 auto !important;
+    padding: 8px 10px !important;
+    font-size: 0.74rem !important;
+    min-height: 44px !important;
+    justify-content: center !important;
+    border-radius: 8px !important;
+  }
+
+  .royal-category-nav {
+    display: flex !important;
+    overflow-x: auto !important;
+    gap: 8px !important;
+    padding-bottom: 8px !important;
+    margin-bottom: 20px !important;
+    width: 100% !important;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .royal-category-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .cat-tab-btn {
+    flex-shrink: 0 !important;
+    padding: 8px 14px !important;
+    font-size: 0.78rem !important;
+    min-height: 44px !important;
+    border-radius: 8px !important;
+  }
+
+  /* ==========================================================================
+     4. GRID RULE & IMAGE SHAPE RULE FOR ALL CARD GRIDS
+     - Strict 2 columns across 360px, 414px, and up to 767px
+     - Equal gaps (12px)
+     - Equal card heights per row, identical widths
+     - Wide banner food images (aspect-ratio: 16/10), rounded-xl, cover
+     - Tap targets 44px min-height
+     ========================================================================== */
+  .royal-products-grid,
+  .shahi-dish-grid,
+  .sunday-grid,
+  .why-begums-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 12px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    margin-bottom: 0 !important;
+  }
+
+  .menu-card,
+  .sunday-card,
+  .shahi-dish-card,
+  .why-begums-card {
+    height: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    border-radius: 14px !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35) !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+  }
+
+  .menu-card-frame {
+    padding: 6px 6px 0 6px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* IMAGE SHAPE RULE: Wide banner food images (16:10 aspect ratio), keeps desktop banner look */
+  .menu-card-media,
+  .sunday-media,
+  .shahi-dish-image-wrapper {
+    aspect-ratio: 16 / 10 !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 94px !important;
+    max-height: 115px !important;
+    border-radius: 10px !important;
+    overflow: hidden !important;
+    position: relative !important;
+    margin-bottom: 0 !important;
+  }
+
+  .menu-card.menu-card-dessert .menu-card-media,
+  .sunday-media.sunday-media-dessert {
+    aspect-ratio: 16 / 10 !important;
+    height: auto !important;
+  }
+
+  .menu-card-img,
+  .sunday-img,
+  .shahi-dish-img {
+    height: 100% !important;
+    width: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    border-radius: 9px !important;
+    display: block !important;
+  }
+
+  /* Badges inside image */
+  .diet-badge {
+    position: absolute !important;
+    top: 5px !important;
+    left: 5px !important;
+    width: 16px !important;
+    height: 16px !important;
+    padding: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    z-index: 2 !important;
+  }
+
+  .diet-dot {
+    width: 6px !important;
+    height: 6px !important;
+    border-radius: 50% !important;
+  }
+
+  .card-serves-tag {
+    position: absolute !important;
+    bottom: 5px !important;
+    right: 5px !important;
+    padding: 2px 5px !important;
+    font-size: 0.62rem !important;
+    border-radius: 4px !important;
+    z-index: 2 !important;
+  }
+
+  .card-ribbon-badge,
+  .sunday-tag,
+  .shahi-dish-tag {
+    position: absolute !important;
+    top: 5px !important;
+    right: 5px !important;
+    font-size: 0.62rem !important;
+    padding: 2px 6px !important;
+    border-radius: 4px !important;
+    z-index: 2 !important;
+  }
+
+  .menu-card-ornament {
+    margin: 2px 0 !important;
+    font-size: 8px !important;
+  }
+
+  /* Card Body with Consistent Inner Padding so text never touches card edges */
+  .menu-card-body,
+  .sunday-content,
+  .shahi-dish-content {
+    padding: 6px 8px 10px 8px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    flex: 1 !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Equalized Row Heights: Clamped Titles (2 lines, exact 35px height) */
+  .card-title,
+  .sunday-dish-name,
+  .shahi-dish-name {
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    line-height: 1.25 !important;
+    margin: 2px 0 !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+    min-height: 35px !important;
+    max-height: 35px !important;
+    color: #FFFFFF !important;
+  }
+
+  .card-subtitle {
+    font-size: 0.7rem !important;
+    margin-bottom: 2px !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    color: var(--color-antique-gold) !important;
+  }
+
+  /* Equalized Row Heights: Clamped Descriptions (2 lines, exact 31px height) */
+  .card-desc,
+  .sunday-dish-desc,
+  .shahi-dish-desc {
+    font-size: 11.5px !important;
+    line-height: 1.35 !important;
+    margin-bottom: 6px !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+    min-height: 31px !important;
+    max-height: 31px !important;
+    color: var(--color-warm-cream) !important;
+    opacity: 0.85 !important;
+  }
+
+  .card-divider-line {
+    margin: 4px 0 6px !important;
+  }
+
+  .card-price,
+  .sunday-price,
+  .shahi-price {
+    font-size: 14px !important;
+    color: #D4AF37 !important;
+    font-family: var(--font-royal) !important;
+    font-weight: 700 !important;
+  }
+
+  .card-unit,
+  .shahi-unit {
+    font-size: 0.68rem !important;
+  }
+
+  .card-rating {
+    font-size: 0.7rem !important;
+  }
+
+  .card-rating svg {
+    width: 10px !important;
+    height: 10px !important;
+  }
+
+  /* Card Footers Pushed to Bottom (margin-top: auto) for Perfect Row Alignment */
+  .menu-card-footer,
+  .shahi-dish-footer,
+  .sunday-actions {
+    margin-top: auto !important;
+    padding-top: 4px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 5px !important;
+    align-items: stretch !important;
+    width: 100% !important;
+  }
+
+  .card-header-row,
+  .shahi-dish-header,
+  .sunday-row-top {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: flex-start !important;
+  }
+
+  .card-action-group,
+  .shahi-actions {
+    width: 100% !important;
+    display: flex !important;
+    gap: 4px !important;
+  }
+
+  /* Interactive Buttons & Steppers: 44px Tap Target Rule */
+  .btn-order-compact,
+  .shahi-add-btn,
+  .btn-sunday-cart,
+  .btn-sunday-wa {
+    padding: 8px 10px !important;
+    font-size: 12px !important;
+    min-height: 44px !important;
+    height: 44px !important;
+    border-radius: 8px !important;
+    width: 100% !important;
+    justify-content: center !important;
+    font-weight: 600 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    box-sizing: border-box !important;
+  }
+
+  .card-stepper {
+    min-height: 44px !important;
+    height: 44px !important;
+    width: 100% !important;
+    justify-content: space-between !important;
+    padding: 2px 6px !important;
+    border-radius: 8px !important;
+    box-sizing: border-box !important;
+    display: inline-flex !important;
+    align-items: center !important;
+  }
+
+  .stepper-btn {
+    min-width: 36px !important;
+    min-height: 36px !important;
+    width: 36px !important;
+    height: 36px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .stepper-val {
+    font-size: 0.85rem !important;
+  }
+
+  /* Sunday Section Elements */
+  .sunday-meta-strip {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 6px !important;
+    margin-top: 10px !important;
+    font-size: 0.74rem !important;
+  }
+
+  .meta-sep {
+    display: none !important;
+  }
+
+  .sunday-options {
+    margin: 4px 0 !important;
+  }
+
+  .sunday-options-title {
+    font-size: 0.68rem !important;
+  }
+
+  .sunday-pills {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 4px !important;
+  }
+
+  .sunday-pill {
+    padding: 3px 6px !important;
+    font-size: 0.65rem !important;
+    min-height: 28px !important;
+    border-radius: 6px !important;
+  }
+
+  .sunday-inclusion {
+    font-size: 0.68rem !important;
+    margin: 4px 0 !important;
+  }
+
+  .sunday-promo {
+    flex-direction: column !important;
+    gap: 16px !important;
+    padding: 20px 16px !important;
+    text-align: center !important;
+    border-radius: 14px !important;
+    margin-top: 20px !important;
+  }
+
+  .sunday-promo-features {
+    justify-content: center !important;
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+    font-size: 0.75rem !important;
+  }
+
+  .sunday-promo-cta-box {
+    align-items: center !important;
+    width: 100% !important;
+  }
+
+  .btn-sunday-reserve {
+    width: 100% !important;
+    justify-content: center !important;
+    min-height: 44px !important;
+  }
+
+  /* Why Choose Us Cards */
+  .why-begums-card {
+    padding: 12px 10px !important;
+    border-radius: 12px !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .why-card-header {
+    margin-bottom: 8px !important;
+    gap: 6px !important;
+  }
+
+  .why-icon-box {
+    width: 32px !important;
+    height: 32px !important;
+  }
+
+  .why-icon-box svg {
+    width: 16px !important;
+    height: 16px !important;
+  }
+
+  .why-tag {
+    font-size: 0.65rem !important;
+  }
+
+  .why-card-title {
+    font-size: 0.86rem !important;
+    line-height: 1.25 !important;
+    margin-bottom: 4px !important;
+  }
+
+  .why-card-desc {
+    font-size: 0.72rem !important;
+    line-height: 1.35 !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 3 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+    color: var(--color-warm-cream) !important;
+    opacity: 0.85 !important;
+  }
+
+  /* ==========================================================================
+     5. CATERING SECTION ON MOBILE
+     ========================================================================== */
+  .catering-cards-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+    width: 100% !important;
+  }
+
+  .catering-card {
+    padding: 16px 14px !important;
+    border-radius: 14px !important;
+  }
+
+  .catering-card-top {
+    margin-bottom: 8px !important;
+  }
+
+  .catering-title {
+    font-size: 1.15rem !important;
+  }
+
+  .catering-highlight {
+    font-size: 0.78rem !important;
+    margin-bottom: 12px !important;
+  }
+
+  .inclusions-list li {
+    font-size: 0.76rem !important;
+  }
+
+  .catering-concierge-strip {
+    flex-direction: column !important;
+    gap: 12px !important;
+    padding: 16px 14px !important;
+    text-align: center !important;
+    margin-top: 16px !important;
+  }
+
+  .concierge-strip-left {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 6px !important;
+  }
+
+  .concierge-strip-left p {
+    font-size: 0.78rem !important;
+  }
+
+  .concierge-call-btn {
+    width: 100% !important;
+    justify-content: center !important;
+    min-height: 44px !important;
+  }
+
+  /* ==========================================================================
+     6. REVIEWS & AVATARS
+     IMAGE SHAPE RULE: Circles stay perfect circles (border-radius: 50%)
+     ========================================================================== */
+  .review-avatar-circle {
+    width: 44px !important;
+    height: 44px !important;
+    border-radius: 50% !important;
+    flex-shrink: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  /* ==========================================================================
+     7. CONTACT SECTION COMPACT
+     ========================================================================== */
+  .contact-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+    width: 100% !important;
+  }
+
+  .contact-info-card,
+  .delivery-check-card {
+    padding: 18px 16px !important;
+    border-radius: 14px !important;
+  }
+
+  .contact-row-val {
+    font-size: 0.82rem !important;
+  }
+
+  .pincode-input-row {
+    display: flex !important;
+    gap: 8px !important;
+  }
+
+  .pincode-input {
+    min-height: 44px !important;
+    height: 44px !important;
+  }
+
+  .pincode-btn {
+    min-height: 44px !important;
+    height: 44px !important;
+  }
+
+  /* ==========================================================================
+     8. FOOTER: 2-COLUMN LINKS & 20PX SIDE PADDING
+     ========================================================================== */
+  .footer-top-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 20px 14px !important;
+    margin-bottom: 24px !important;
+  }
+
+  .footer-brand-col {
+    grid-column: 1 / -1 !important;
+  }
+
+  .footer-desc {
+    font-size: 0.8rem !important;
+    line-height: 1.5 !important;
+  }
+
+  .footer-heading {
+    font-size: 0.88rem !important;
+    margin-bottom: 10px !important;
+  }
+
+  .footer-links-list {
+    gap: 8px !important;
+  }
+
+  .footer-links-list a {
+    font-size: 0.78rem !important;
+    line-height: 1.35 !important;
+    min-height: 32px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+  }
+
+  .footer-links-col:nth-child(4) {
+    grid-column: 1 / -1 !important;
+    margin-top: 4px !important;
+  }
+
+  .footer-bottom-bar {
+    flex-direction: column !important;
+    text-align: center !important;
+    gap: 10px !important;
+  }
+
+  .copyright-text {
+    font-size: 0.72rem !important;
+  }
+
+  .footer-badges {
+    justify-content: center !important;
+    flex-wrap: wrap !important;
+    gap: 6px !important;
+  }
+}
+
+

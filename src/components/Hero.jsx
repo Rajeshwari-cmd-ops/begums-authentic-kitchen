@@ -104,9 +104,26 @@ export default function Hero({ onExploreMenu }) {
               </span>
             </h1>
 
+            {/* Mobile-only thin gold divider ornament */}
+            <div className="gold-decorative-divider hero-mobile-divider" aria-hidden="true">
+              <span className="divider-line" />
+              <span className="divider-emblem">❖</span>
+              <span className="divider-line" />
+            </div>
+
+            {/* Mobile-only subtle floating gold diamond particles */}
+            <span className="hero-mobile-particle hero-mobile-particle-1" aria-hidden="true">✦</span>
+            <span className="hero-mobile-particle hero-mobile-particle-2" aria-hidden="true">✦</span>
+            <span className="hero-mobile-particle hero-mobile-particle-3" aria-hidden="true">✦</span>
+
             <p className="hero-lead-desc hero-desc-fade-up">
-              Experience authentic Hyderabadi cuisine, prepared with tradition and served with royalty.
-              Slow-cooked Dum Biryanis, Shahi Kebabs, and feasts crafted from generation-old heirloom recipes.
+              <span className="hero-desc-desktop">
+                Experience authentic Hyderabadi cuisine, prepared with tradition and served with royalty.
+                Slow-cooked Dum Biryanis, Shahi Kebabs, and feasts crafted from generation-old heirloom recipes.
+              </span>
+              <span className="hero-desc-mobile">
+                Slow-cooked Dum Biryanis & heirloom royal feasts, served with authentic Nawabi tradition.
+              </span>
             </p>
 
             <div className="hero-cta-group">
